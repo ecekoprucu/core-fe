@@ -30,7 +30,7 @@ export const Login = () => {
             action: 'ValidateLogin'
        }
 
-       await axios.post('http://localhost:5050/api/data', data).then(res => {
+       await axios.post('http://dev.bigcore.net/api/data/api/data', data).then(res => {
         
         if(res.data.result === 'error') {
             setAlertType('danger');

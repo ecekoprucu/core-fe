@@ -21,7 +21,7 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://localhost:5050",
+  "proxy": "http://dev.bigcore.net/api/data",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

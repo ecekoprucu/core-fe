@@ -14,7 +14,7 @@ export const ClientDetail = () => {
                 clientId: id
             }
 
-            await axios.post('http://localhost:5050/api/data', data).then((res) => setClient(res.data.client));
+            await axios.post('http://dev.bigcore.net/api/data/api/data', data).then((res) => setClient(res.data.client));
         }
         getClientDetail();
     }, [id]);
