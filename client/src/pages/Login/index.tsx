@@ -34,6 +34,8 @@ export const Login = () => {
         
         if(res.data.result === 'error') {
             setAlertType('danger');
+            setShowAlert(true);
+            return;
         } 
 
         if(res.data.result === 'success') {
@@ -41,7 +43,9 @@ export const Login = () => {
             setUserid(res.data.userid);
             sessionStorage.setItem('user', res.data.userid);
             sessionStorage.setItem('userMail', email?.toString());
+            setShowAlert(true);
             window.location.reload();
+            return;
         }
 
        }).catch(err => {
@@ -49,7 +53,7 @@ export const Login = () => {
         alert('Unexpected error, please try again later');
         return
        });
-       setShowAlert(true);
+
 
     }
 
