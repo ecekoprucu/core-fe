@@ -6,7 +6,7 @@ const axios = require('axios');
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-app.use(cors({ origin: ['http://localhost:3000', 'http://dev.bigcore.net', 'http://92.33.252.154:3000'] }));
+app.use(cors({ origin: ['http://localhost:3000', 'http://dev.bigcore.net', 'http://92.33.252.154:3000', 'http://dev.bigcore.net:3000'] }));
 app.use(express.json());
 
 function b64EncodeUnicode(str) {
