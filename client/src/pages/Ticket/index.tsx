@@ -1,16 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import { Sidebar } from "../../components/SideBar";
 import { Button } from "react-bootstrap";
 
 export const Ticket = () => {
     const { id } = useParams();
     let navigate = useNavigate();
+    const { state } = useLocation();
 
     const [ticket, setTicket] = useState<any>(null);
 
     const userMail = sessionStorage.getItem('userMail');
+
 
     useEffect(() => {
         const getTicket = async () => {
@@ -29,7 +31,10 @@ export const Ticket = () => {
         navigate(`/reply/${id}`, {
             state: {
                 name: name,
-                from: 'ticket'
+                from: state.from,
+                ...{
+                    ...(state && state.from === 'client' ? { clientId: state.clientId } : {}),
+                }
             }
         })
     }

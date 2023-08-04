@@ -44,9 +44,8 @@ export const Reply = () => {
             message,
             customField: customField && customField?.toString().length > 0 ? customField : null,
             ...{
-                ...(state && state.from === 'ticket' ? { email: userMail, name: state.name } : {clientId: state.clientId}),
+                ...(state && state.from === 'user' ? { email: userMail, name: state.name } : state && state.from === 'client' ? {clientId: state.clientId} : {}),
             }
-
         }
 
         await axios.post('http://localhost:5050/api/data', data).catch(() => {

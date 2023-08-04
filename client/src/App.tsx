@@ -6,6 +6,8 @@ import { Main } from './pages/Main';
 import { Tickets } from './pages/Tickets';
 import { Ticket } from './pages/Ticket';
 import { Reply } from './pages/Reply';
+import { ClientTicketPage } from './pages/Tickets/ClientTicketPage';
+import { ClientDetail } from './pages/ClientDetail';
 
 function App() {
 
@@ -16,11 +18,12 @@ function App() {
         <Route path="/tickets">
           <Route index element={<Tickets />} />
           <Route path=':id' element={<Ticket />} />
+          <Route path='clientTickets/:clientId' element={<ClientTicketPage />} />
         </Route>
         <Route path="/reply">
           <Route path=':id' element={<Reply />} />
         </Route>
-
+        <Route path="/clientDetail" element={<ClientDetail />} />
       </Routes>
   )
 }

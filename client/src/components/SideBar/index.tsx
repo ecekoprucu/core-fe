@@ -1,14 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
+
 
 const signOut = () => {
     sessionStorage.removeItem('user');
     sessionStorage.removeItem('userMail');
 
-    window.location.reload();
+    if(window.location.pathname !== '/') {
+        redirect('/');
+    } else {
+        window.location.reload();
+    }
 }
 
 export const Sidebar = () => {
+
+
     return (
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 justify-content-between">
@@ -32,7 +39,7 @@ export const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/clientInfo" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
+                        <Link to="/clientDetail" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
                             <i className="bi bi-person"></i> <span className="ms-1 d-none d-sm-inline">Client Information</span>
                         </Link>
                     </li>
