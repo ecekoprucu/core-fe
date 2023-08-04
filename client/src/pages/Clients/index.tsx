@@ -47,6 +47,7 @@ export const ClientsPage = () => {
                                     <th>Client Name</th>
                                     <th>Client Email</th>
                                     <th>Client Status</th>
+                                    <th>Client Invoices</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,6 +64,11 @@ export const ClientsPage = () => {
                                                 <td>{client.firstname} {client.lastname}</td>
                                                 <td>{client.email}</td>
                                                 <td>{client.status}</td>
+                                                <td>
+                                                    <Link to={`/clients/${client.id}/invoices`} key={`client-${index}`}>
+                                                        View Invoices
+                                                    </Link>
+                                                </td>
                                             </tr>
                                     )
                                 })}

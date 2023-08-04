@@ -39,7 +39,7 @@ export const Login = () => {
         if(res.data.result === 'success') {
             setUserEmail(email?.toString());
             setUserid(res.data.userid);
-            sessionStorage.setItem('user', res.data.passwordhash);
+            sessionStorage.setItem('user', res.data.userid);
             sessionStorage.setItem('userMail', email?.toString());
             window.location.reload();
         }

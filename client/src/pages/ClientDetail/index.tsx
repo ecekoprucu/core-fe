@@ -34,11 +34,12 @@ export const ClientDetail = () => {
                 <div className="row flex-nowrap">
                     <Sidebar />
                     <div className="container-sm col">
-                    <h1>Client #{id}</h1>
+                        <h1>Client #{id}</h1>
                         <p><b>Client Name:</b> {client.fullname}</p>
                         <p><b>Client Country:</b> {client.countryname}</p>
                         <p><b>Client Telephone Number:</b> {client.telephoneNumber}</p>
                         <p><b>Client Status:</b> {client.status}</p>
+                        <br />
                         <div>
                             <h3>Client Users</h3>
                             <ul>

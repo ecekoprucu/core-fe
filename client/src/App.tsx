@@ -9,6 +9,8 @@ import { Reply } from './pages/Reply';
 import { ClientTicketPage } from './pages/Tickets/ClientTicketPage';
 import { ClientDetail } from './pages/ClientDetail';
 import { ClientsPage } from './pages/Clients';
+import { Invoices } from './pages/Invoices';
+import { InvoiceDetail } from './pages/InvoiceDetail';
 
 function App() {
 
@@ -26,9 +28,14 @@ function App() {
         </Route>
         <Route path="/clients">
           <Route index element={<ClientsPage />} />       
-          <Route path=":id" element={<ClientDetail />} />
+          <Route path=":id">
+            <Route index element={<ClientDetail />} />
+            <Route path="invoices">
+              <Route index element={<Invoices />} />
+              <Route path=":invoiceId" element={<InvoiceDetail />} />
+            </Route>
+          </Route>
         </Route>
-
       </Routes>
   )
 }

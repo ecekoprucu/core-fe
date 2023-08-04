@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const signOut = () => {
@@ -7,15 +7,13 @@ const signOut = () => {
     sessionStorage.removeItem('userMail');
 
     if(window.location.pathname !== '/') {
-        redirect('/');
+        window.location.replace('/');
     } else {
         window.location.reload();
     }
 }
 
 export const Sidebar = () => {
-
-
     return (
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 justify-content-between">
@@ -31,11 +29,6 @@ export const Sidebar = () => {
                     <li>
                         <Link to="/tickets" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
                             <i className="bi bi-ticket"></i> <span className="ms-1 d-none d-sm-inline">Tickets</span> 
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/invoices" className="nav-link px-0 align-middle">
-                            <i className="bi bi-file-earmark"></i> <span className="ms-1 d-none d-sm-inline">Invoices</span>
                         </Link>
                     </li>
                     <li>
