@@ -8,6 +8,7 @@ import { Ticket } from './pages/Ticket';
 import { Reply } from './pages/Reply';
 import { ClientTicketPage } from './pages/Tickets/ClientTicketPage';
 import { ClientDetail } from './pages/ClientDetail';
+import { ClientsPage } from './pages/Clients';
 
 function App() {
 
@@ -23,7 +24,11 @@ function App() {
         <Route path="/reply">
           <Route path=':id' element={<Reply />} />
         </Route>
-        <Route path="/clientDetail" element={<ClientDetail />} />
+        <Route path="/clients">
+          <Route index element={<ClientsPage />} />       
+          <Route path=":id" element={<ClientDetail />} />
+        </Route>
+
       </Routes>
   )
 }

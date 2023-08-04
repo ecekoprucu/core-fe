@@ -39,7 +39,7 @@ export const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/clientDetail" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
+                        <Link to="/clients" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
                             <i className="bi bi-person"></i> <span className="ms-1 d-none d-sm-inline">Client Information</span>
                         </Link>
                     </li>
