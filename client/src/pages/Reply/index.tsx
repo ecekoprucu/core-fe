@@ -48,7 +48,7 @@ export const Reply = () => {
             }
         }
 
-        await axios.post('http://dev.bigcore.net/api/data/api/data', data).catch(() => {
+        await axios.post('http://dev.bigcore.net/api/data', data).catch(() => {
             alert('An error occured.');
             setSendingState(false);
         }).then(() => {

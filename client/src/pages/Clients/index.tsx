@@ -14,7 +14,7 @@ export const ClientsPage = () => {
                 action: 'GetClients'
             }
 
-            axios.post('http://dev.bigcore.net/api/data/api/data', data).then(res => {
+            axios.post('http://dev.bigcore.net/api/data', data).then(res => {
                 setClients(res.data.clients.client);
             });
         }

@@ -21,7 +21,7 @@ export const Ticket = () => {
                 ticketId: id
             }
 
-            await axios.post('http://dev.bigcore.net/api/data/api/data', data).then((res) => setTicket(res.data));
+            await axios.post('http://dev.bigcore.net/api/data', data).then((res) => setTicket(res.data));
         }
 
         getTicket();

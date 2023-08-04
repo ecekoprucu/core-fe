@@ -36,7 +36,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       ...(action === 'GetInvoices' ? { userId: clientId } : {clientId: clientId}),
   };
 
- const response = await axios.post('http://dev.bigcore.net/api/data/api/data', data);
+ const response = await axios.post('http://dev.bigcore.net/api/data', data);
  
  !!response.data.id && setClientId(response.data.id);
  !!response.data.userid && setUserId(response.data.userid);
@@ -59,7 +59,7 @@ useEffect(() => {
       email: mail
     }
 
-    axios.post('http://dev.bigcore.net/api/data/api/data', data).then((response) => {
+    axios.post('http://dev.bigcore.net/api/data', data).then((response) => {
       setClientId(response.data.id);
     });
   }

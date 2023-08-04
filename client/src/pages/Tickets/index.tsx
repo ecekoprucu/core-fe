@@ -21,7 +21,7 @@ export const Tickets = () => {
                 action: 'GetTickets'
             }
             
-            await axios.post('http://dev.bigcore.net/api/data/api/data', data).then(res => setUserTickets(res.data.tickets.ticket));
+            await axios.post('http://dev.bigcore.net/api/data', data).then(res => setUserTickets(res.data.tickets.ticket));
         }
         getTicketsByUser();
     }, [userMail]);

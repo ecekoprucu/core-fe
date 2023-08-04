@@ -13,7 +13,7 @@ export const InvoiceDetail = () => {
                 action: 'GetInvoice',
                 invoiceid: invoiceId
             }
-            await axios.post('http://dev.bigcore.net/api/data/api/data', data).then(res => {
+            await axios.post('http://dev.bigcore.net/api/data', data).then(res => {
                 setInvoice(res.data);
             });
        }

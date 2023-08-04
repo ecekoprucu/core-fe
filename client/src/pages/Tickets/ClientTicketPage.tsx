@@ -14,7 +14,7 @@ export const ClientTicketPage = () => {
                     clientId: clientId,
                     action: 'GetTickets'
                 }
-                await axios.post('http://dev.bigcore.net/api/data/api/data', data).then(res => {
+                await axios.post('http://dev.bigcore.net/api/data', data).then(res => {
                    setClientTickets(res.data.tickets.ticket);
                 });
             }

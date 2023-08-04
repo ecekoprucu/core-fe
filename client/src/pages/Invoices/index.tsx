@@ -14,7 +14,7 @@ export const Invoices = () => {
                 userId: id
             }
 
-            await axios.post('http://dev.bigcore.net/api/data/api/data', data).then((res) => setInvoices(res.data.invoices.invoice ?? []));
+            await axios.post('http://dev.bigcore.net/api/data', data).then((res) => setInvoices(res.data.invoices.invoice ?? []));
         }
 
         getInvoices();

@@ -17,7 +17,7 @@ export const Main = () => {
         }
 
         const fetchData = async () => {
-           await axios.post('http://dev.bigcore.net/api/data/api/data',data).then(res => {
+           await axios.post('http://dev.bigcore.net/api/data',data).then(res => {
                 setUser(res.data.users[0]);
                 setClients(res.data.users[0].clients);
            })
