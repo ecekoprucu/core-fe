@@ -8,12 +8,12 @@ type Props = {
 };
 
 export const DataProvider = ({ children }: Props) => {
-    const [clientid, setClientid] = useState<string | number | null>(null);
+    const [clients, setClients] = useState<any[] | null >(null);
     const [userid, setUserid] = useState<string | number | null>(null);
     const [userEmail, setUserEmail] = useState<string | undefined>(undefined);
 
     return (
-        <DataContext.Provider value={{ clientid, setClientid, userid, setUserid, userEmail, setUserEmail }}>
+        <DataContext.Provider value={{ clients, setClients, userid, setUserid, userEmail, setUserEmail }}>
             {children}
         </DataContext.Provider>
     )

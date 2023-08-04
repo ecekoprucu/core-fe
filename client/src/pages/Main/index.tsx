@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Sidebar } from '../../components/SideBar';
+import { DataContextType } from '../../utils/types';
+import DataContext from '../../context/dataContext';
+import { Link } from 'react-router-dom';
 
 export const Main = () => {
     const userMail = sessionStorage.getItem('userMail');
-
+    const { setClients } = useContext(DataContext) as DataContextType;
     const [user, setUser] = useState();
 
     useEffect(() => {
@@ -15,20 +18,30 @@ export const Main = () => {
 
         const fetchData = async () => {
            await axios.post('http://localhost:5050/api/data',data).then(res => {
-            setUser(res.data.users[0]);
+                setUser(res.data.users[0]);
+                setClients(res.data.users[0].clients);
            })
         }
 
         fetchData();
-    }, [userMail]);
+    }, [setClients, userMail]);
 
-    if(!user || !userMail ) {
+    if(!user) {
         return (
            <div className='container-fluid d-flex justify-content-center align-items-center flex-column p-2 bd-highlight vh-100'>
                 <div className="spinner-border text-primary" role="status">
                     <span className="visually-hidden">Loading...</span>
                 </div>
            </div>
+        )
+    }
+
+    if(!userMail) {
+        return (
+            <div className='container-fluid d-flex justify-content-center align-items-center flex-column p-2 bd-highlight vh-100'>
+                <h3>Something went wrong</h3>
+                <Link to='/'>Go back</Link>
+            </div>
         )
     }
 

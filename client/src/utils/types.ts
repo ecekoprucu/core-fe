@@ -1,6 +1,6 @@
 export type DataContextType = {
-    clientid: number | string | null;
-    setClientid: (clientid: number | string | null) => void;
+    clients: any[] | null;
+    setClients: (clientid: any[]) => void;
     userEmail: string | undefined;
     setUserEmail: (userEmail: string | undefined) => void;
     userid: number | string | null;

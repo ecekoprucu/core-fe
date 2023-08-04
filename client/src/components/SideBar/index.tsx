@@ -1,4 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react";
+import { Link } from "react-router-dom";
+
+const signOut = () => {
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('userMail');
+
+    window.location.reload();
+}
 
 export const Sidebar = () => {
     return (
@@ -9,29 +17,31 @@ export const Sidebar = () => {
                 <hr />
                 <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li className="nav-item">
-                        <a href="/" className="nav-link align-middle px-0">
+                        <Link to="/" className="nav-link align-middle px-0">
                             <i className="bi bi-house"></i> <span className="ms-1 d-none d-sm-inline">Main Screen</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+                        <Link to="/tickets" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
                             <i className="bi bi-ticket"></i> <span className="ms-1 d-none d-sm-inline">Tickets</span> 
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className="nav-link px-0 align-middle">
-                            <i className="bi bi-file-earmark"></i> <span className="ms-1 d-none d-sm-inline">Invoices</span></a>
+                        <Link to="/invoices" className="nav-link px-0 align-middle">
+                            <i className="bi bi-file-earmark"></i> <span className="ms-1 d-none d-sm-inline">Invoices</span>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
-                            <i className="bi bi-person"></i> <span className="ms-1 d-none d-sm-inline">Client Information</span></a>
+                        <Link to="/clientInfo" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
+                            <i className="bi bi-person"></i> <span className="ms-1 d-none d-sm-inline">Client Information</span>
+                        </Link>
                     </li>
                 </ul>
                 <hr />
                 <div className="pb-4">
-                    <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span className="d-none d-sm-inline mx-1">loser</span>
-                    </a>
+                    <button onClick={signOut} className="d-flex align-items-center text-white bg-transparent border-0 text-decoration-none">
+                        <span className="d-none d-sm-inline mx-1">Sign Out</span>
+                    </button>
                 </div>
             </div>
         </div>
