@@ -47,6 +47,7 @@ export const Login = () => {
        }).catch(err => {
         console.error(err);
         alert('Unexpected error, please try again later');
+        return
        });
        setShowAlert(true);
 
