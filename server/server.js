@@ -6,7 +6,7 @@ const axios = require('axios');
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-app.use(cors({ origin: ['http://localhost:3000', 'http://dev.bigcore.net', 'http://92.33.252.154:3000', 'http://dev.bigcore.net:3000'] }));
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
 function b64EncodeUnicode(str) {
@@ -20,9 +20,9 @@ app.post('/api/data', async (req, res) => {
     const { email, password, action, clientId, userId, ticketId, message, customField, search, name, invoiceid} = req.body;
 
     const encodedCustomField = customField ? b64EncodeUnicode(customField) : null;
-    // console.log(`https://bridge.bigcore.net/includes/api.php?username=${process.env.REACT_APP_API_USERNAME}&password=${process.env.REACT_APP_API_PASSWORD}&responsetype=JSON&action=${action}${(!!email && '&email=') || ''}${(!!email && email) || ''}${(!!userId && '&userid=') || ''}${(!!userId && userId) || ''}${(!!clientId && '&clientid=') || ''}${(!!clientId && clientId) || ''}${(!!password && '&password2=' || '')}${(!!password && password) || ''}${(!!ticketId && '&ticketid=') || ''}${(!!ticketId && ticketId) || ''}${(!!message && '&message=') || ''}${(!!message && message) || ''}${(!!name && '&name=') || '' }${(!!name && name) || ''}${(!!encodedCustomField && '&customfields=') || ''}${(!!encodedCustomField && encodedCustomField) || ''}${(!!search && '&search=') || ''}${(!!search && search) || ''}`);
+
     try {
-      const response = await axios.post(`https://bridge.bigcore.net/includes/api.php?username=PnjYA1TMwXHtJAueyfPJpXTJliD1Mge3&password=cHBfzUcU8AIaOPszvTq9RYh4VgBor0EP&responsetype=JSON&action=${action}${(!!email && '&email=') || ''}${(!!email && email) || ''}${(!!userId && '&userid=') || ''}${(!!userId && userId) || ''}${(!!clientId && '&clientid=') || ''}${(!!clientId && clientId) || ''}${(!!password && '&password2=' || '')}${(!!password && password) || ''}${(!!ticketId && '&ticketid=') || ''}${(!!ticketId && ticketId) || ''}${(!!message && '&message=') || ''}${(!!message && message) || ''}${(!!name && '&name=') || '' }${(!!name && name) || ''}${(!!encodedCustomField && '&customfields=') || ''}${(!!encodedCustomField && encodedCustomField) || ''}${(!!search && '&search=') || ''}${(!!search && search) || ''}${(!!invoiceid && '&invoiceid=') || ''}${(!!invoiceid && invoiceid) || ''}`);
+      const response = await axios.post(`https://dummyurl.com/api.php?responsetype=JSON&action=${action}${(!!email && '&email=') || ''}${(!!email && email) || ''}${(!!userId && '&userid=') || ''}${(!!userId && userId) || ''}${(!!clientId && '&clientid=') || ''}${(!!clientId && clientId) || ''}${(!!password && '&password2=' || '')}${(!!password && password) || ''}${(!!ticketId && '&ticketid=') || ''}${(!!ticketId && ticketId) || ''}${(!!message && '&message=') || ''}${(!!message && message) || ''}${(!!name && '&name=') || '' }${(!!name && name) || ''}${(!!encodedCustomField && '&customfields=') || ''}${(!!encodedCustomField && encodedCustomField) || ''}${(!!search && '&search=') || ''}${(!!search && search) || ''}${(!!invoiceid && '&invoiceid=') || ''}${(!!invoiceid && invoiceid) || ''}`);
 
       const data = response.data;
       console.log(data);
